@@ -1,0 +1,120 @@
+.wrapper {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.link-animation {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		left: 0;
+		bottom: -10px;
+		background-color: $primary;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.3s;
+	}
+	&:hover {
+		&::before {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+}
+
+.dot-heading {
+	position: relative;
+	&::before {
+		content: url("../assets/patterns/dots-heading.png");
+		position: absolute;
+		left: -10px;
+		top: -20px;
+		width: 100px;
+		height: 70px;
+		opacity: 0.5;
+		overflow: hidden;
+	}
+}
+
+.dot-background {
+	position: absolute;
+	width: 90px;
+	height: 50px;
+	background-image: url("../assets/patterns/dots-background.jpg");
+}
+
+.text-underline {
+	display: inline-block;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		left: 5px;
+		bottom: 10px;
+		width: 100%;
+		height: 10px;
+		background-color: $primary;
+		opacity: 0.6;
+	}
+}
+
+.section-heading {
+	text-align: center;
+	padding: 3em 0.4em;
+
+	span {
+		display: block;
+	}
+}
+.section-title {
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -25px;
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: 150px;
+		height: 5px;
+		background-color: $primary;
+	}
+}
+.section-text {
+	margin: 0 auto;
+	padding-top: 3em;
+	max-width: 500px;
+	font-size: 1.6rem;
+}
+
+.skip-link {
+	position: absolute;
+	left: -999px;
+	width: 1px;
+	height: 1px;
+	top: auto;
+	color: transparent;
+
+	&:focus {
+		color: royalblue;
+		display: inline-block;
+		height: auto;
+		width: auto;
+		position: static;
+		margin: auto;
+	}
+}
+
+.sticky-body {
+	overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+	.section-title {
+		font-size: 3rem;
+	}
+}
